@@ -1,0 +1,208 @@
+footer {
+  position: absolute;
+  left: 0;
+  bottom: -380px;
+  width: 100%;
+  background-color: #4d648d;
+  color: white;
+  height: 380px;
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    bottom: -1140px;
+    height: 1140px;
+  }
+  .ft-img {
+    padding-left: 2% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+  footer {
+    bottom: -760px;
+    height: 760px;
+  }
+  .ft-img {
+    height: 240px !important;
+    width: 80% !important;
+    padding-left: 6% !important;
+  }
+}
+
+.ft-img {
+  margin: 30px 0px 0 30px;
+  width: 85%;
+  height: 220px;
+  margin-bottom: 10px;
+  padding-left: 4%;
+}
+
+.footer-content {
+  text-align: center !important;
+  padding: 0 20% 0 16% !important;
+}
+
+.highlight {
+  text-align: center;
+  color: #d0e1f9;
+  font-size: 17px;
+  font-weight: bold;
+}
+.cotact-icon {
+  padding-top: 20px;
+  padding-bottom: 25px;
+  color: #283655;
+  list-style-type: none;
+}
+.contact-list {
+  text-align: center;
+  list-style-type: none;
+  margin-left: -50px;
+}
+
+.contact-list li a {
+  font-size: 16px !important;
+  font-weight: 700;
+}
+.contact-info {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: 500;
+  text-transform: lowercase;
+  cursor: pointer;
+  text-align: left;
+  list-style-type: none;
+}
+
+.contact-info:hover {
+  color: #283655;
+  font-size: 16px !important;
+}
+
+.heading {
+  padding-top: 20px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: left;
+  font-size: 20px;
+  color: #d0e1f9;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.heading span {
+  position: relative;
+  display: block;
+  padding: 10px;
+}
+.contact-heading {
+  justify-content: center;
+  margin-left: -25px;
+}
+
+.heading span svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.heading span svg path {
+  fill: transparent;
+  stroke-width: 5px;
+  stroke: currentColor;
+  stroke-dasharray: 547.4111328125;
+  stroke-dashoffset: 547.4111328125;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.29, 0.68, 0.74, 1.02);
+}
+
+.heading span:hover svg path {
+  stroke-dashoffset: 0;
+}
+
+footer ul {
+  list-style-type: none;
+}
+footer ul li {
+  text-align: left;
+  position: relative;
+}
+footer ul li:hover:after {
+  box-shadow: 0 0 0 5px #4d648d, 0 0 0 7px #283655;
+}
+footer ul li:after {
+  content: "";
+  position: absolute;
+  width: 7.5px;
+  height: 7.5px;
+  background: #283655;
+  border-radius: 100%;
+  left: -25px;
+  top: 50%;
+  transform: translate(0, -50%);
+  box-shadow: 0 0 0 0 #4d648d, 0 0 0 0 #283655;
+  transition: 0.4s ease-in-out;
+}
+
+footer ul li a:before {
+  transform-origin: right;
+  width: calc(100% + 25px);
+}
+footer ul li a:hover:before {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 2s linear infinite; animation-delay:0s; stroke:%23283655; stroke-width:2; stroke-dashoffset:0px; stroke-dasharray:80px; stroke-linecap:round; fill:%234d648d; %7D @keyframes wave%7B 25%25%7B stroke-dashoffset:-80px; %7D 50%25%7B stroke-dashoffset:-80px; %7D 100%25%7B stroke-dashoffset:-160px; %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath class='wave' d='M 0 40 L 50 40 L 80 40 L 54 44 L 54 36 L 80 40 ' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+      calc(100% - 10px) 50%/40px 80px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B stroke:%23283655; stroke-width:2; stroke-linecap:round; %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 40 40 40 Q 60 40 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+      0px 50% / calc(100% - 25px) 80px no-repeat;
+  -webkit-animation: none;
+  animation: none;
+  transform-origin: left;
+}
+footer a {
+  display: inline-block;
+  margin: 8px 0;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 2;
+  transition: 0.2s ease-in-out;
+}
+footer a:hover {
+  color: #283655;
+}
+footer a:hover:before {
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: left;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B animation:wave 1s ease-in-out infinite alternate; animation-delay:-0.25s; stroke:%23283655; stroke-width:2; stroke-linecap:square; %7D @keyframes wave%7B to%7B d:path('M 0 40 Q 20 42.5 40 40 Q 60 37.5 80 40'); %7D %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 37.5 40 40 Q 60 42.5 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+    0px 50%/80px 80px repeat-x;
+  -webkit-animation: waving 3s linear infinite;
+  animation: waving 3s linear infinite;
+  transform: scaleX(1);
+}
+@-webkit-keyframes waving {
+  to {
+    background-position: 80px 50%, 160px 50%;
+  }
+}
+@keyframes waving {
+  to {
+    background-position: 80px 50%, 160px 50%;
+  }
+}
+footer a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  left: 0;
+  bottom: -45px;
+  z-index: -1;
+  transform: scaleX(0);
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1);
+  transform-origin: right;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200%25' height='100%25'%3E%3Cdefs%3E%3Cstyle%3E .wave%7B stroke:%23283655; stroke-width:2; stroke-linecap:square; %7D %3C/style%3E%3C/defs%3E%3Cpattern id='wavePattern' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath fill='none' class='wave' d='M 0 40 Q 20 40 40 40 Q 60 40 80 40' /%3E%3C/pattern%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23wavePattern)'%3E%3C/rect%3E%3C/svg%3E")
+    0px 50%/80px 80px repeat-x;
+}

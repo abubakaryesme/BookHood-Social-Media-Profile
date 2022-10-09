@@ -1,0 +1,19 @@
+.pg-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.wrap {
+  padding-bottom: 380px;
+}
+
+@media screen and (max-width: 600px) {
+  .wrap {
+    padding-bottom: 1140px;
+  }
+}
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+  .wrap {
+    padding-bottom: 760px;
+  }
+}

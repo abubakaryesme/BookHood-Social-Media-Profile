@@ -1,0 +1,57 @@
+.nav-button:hover {
+  color: #d0e1f9 !important;
+  background-color: #4d648d !important;
+}
+
+.nav-login:hover {
+  color: #283655 !important;
+  background-color: #d0e1f9 !important;
+}
+
+.pipe {
+  height: 49px;
+  width: 17px;
+  margin: 0;
+  padding: 0;
+  margin-right: -11px;
+  z-index: 999;
+  overflow: visible;
+}
+.nav-login::before {
+  transition: 300ms;
+  height: 4px;
+  border-radius: 2px;
+  content: "";
+  position: absolute;
+  background-color: #283655;
+}
+
+.nav-button::before {
+  transition: 300ms;
+  height: 3px;
+  border-radius: 2px;
+  content: "";
+  position: absolute;
+  background-color: #d0e1f9;
+}
+
+.nav-button-ltr::before {
+  width: 0%;
+  bottom: 4px;
+}
+
+.nav-button-ltr:hover::before {
+  width: 82%;
+}
+
+.logo {
+  height: 50px;
+  width: 70px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.bookmark {
+  height: 15px;
+  width: 15px;
+}
