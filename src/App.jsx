@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <div className="pg-container">
-        <div classname="wrap">
+        <div className="wrap">
           <NavBar title={"Github Finder"} />
           <main>
             <Routes>

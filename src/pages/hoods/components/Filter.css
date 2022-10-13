@@ -1,0 +1,46 @@
+.filter-container {
+  border-radius: 30px !important;
+  box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.accordion-heading {
+  font-size: 17px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  font-weight: bolder;
+  color: #283655;
+}
+
+.filter-chip {
+  background-color: #d0e1f9 !important;
+  color: #4d648d !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  margin: 0 5px 0 5px !important;
+}
+
+.price-filter {
+  color: #283655;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.connection-filter.MuiToggleButton-root.Mui-selected {
+  background-color: #4d648d !important;
+  color: white !important;
+}
+
+.filter-tabs {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #4d648d !important;
+}
+
+#outlined-number {
+  padding: 0px 5px 5px 5px !important;
+  margin: 0 px;
+  height: 33px !important;
+  color: 1px solid #283655 !important;
+  width: 100% !important;
+}

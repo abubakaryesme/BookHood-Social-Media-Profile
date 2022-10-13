@@ -395,7 +395,7 @@ const NavBar = () => {
               </>
             ) : (
               <Button
-                key="/login"
+                key={"/login"}
                 className="nav-login nav-button-ltr"
                 onClick={() => handleCloseNavMenu(links["Login"])}
                 sx={{
