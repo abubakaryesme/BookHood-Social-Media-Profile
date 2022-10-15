@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { useState, useEffect } from "react";
 import GooglePlacesAutocomplete, {
@@ -30,37 +31,37 @@ const marks = [
     label: "0",
   },
   {
-    value: 500,
-    label: "500 Rs",
+    value: 700,
+    label: "700",
   },
   {
-    value: 1500,
-    label: "1500 Rs",
+    value: 2000,
+    label: "2K",
   },
   {
     value: 3000,
-    label: "3000 Rs",
+    label: "3K",
   },
   {
     value: 5000,
-    label: "5000 Rs",
+    label: "5K",
   },
   {
     value: 6500,
-    label: "6500 Rs",
+    label: "6.5K",
   },
   {
     value: 8000,
-    label: "8000 Rs",
+    label: "8K",
   },
   {
-    value: 10000,
-    label: ">10000 Rs",
+    value: 9800,
+    label: ">10K",
   },
 ];
 
 function valuetext(value) {
-  return `${value} Rs`;
+  return `${value}`;
 }
 
 function TabPanel(props) {
@@ -75,7 +76,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 2 }}>
+        <Box sx={{ px: { xs: 0, md: 2, lg: 2, sm: 0 }, py: 2 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -100,7 +101,8 @@ function Filter() {
   const [tabValue, setTabValue] = React.useState(0);
   const [radius, setRadius] = useState(1);
   const [price, setPrice] = useState(0);
-  const [chipData, setChipData] = React.useState([]);
+  const [chipData, setChipData] = useState([]);
+  const [filterChip, setFilterChip] = useState({ label: "Filters" });
 
   useEffect(() => {
     const func = async () => {
@@ -157,11 +159,15 @@ function Filter() {
           obj.label = address;
           obj.value = "";
           setNearbyAddress(obj);
+          setFilterChip(null);
           if (!chipData.find((ele) => ele.key === 1)) {
             setChipData([...chipData, { key: 1, label: "Nearby" }]);
           }
           setInstituteAddress(null);
           setChipData((chips) => chips.filter((chip) => chip.key !== 0));
+          if (chipData.length === 1) {
+            setFilterChip({ label: "Filters" });
+          }
         },
         (error) => {}
       );
@@ -170,6 +176,9 @@ function Filter() {
 
   const handleChipDelete = (chipToDelete) => () => {
     setChipData((chips) => chips.filter((chip) => chip.key !== chipToDelete));
+    if (chipData.length === 1) {
+      setFilterChip({ label: "Filters" });
+    }
     if (chipToDelete === 3) {
       setConnectionSelected(false);
     } else if (chipToDelete === 2) {
@@ -193,16 +202,21 @@ function Filter() {
 
   const handleConnectionChange = () => {
     setConnectionSelected(!connectionSelected);
+    setFilterChip(null);
     if (!connectionSelected) {
-      setChipData([...chipData, { key: 3, label: "Connections" }]);
+      setChipData([...chipData, { key: 3, label: "Connections", sz: 2 }]);
     } else if (connectionSelected) {
       setChipData((chips) => chips.filter((chip) => chip.key !== 3));
+      if (chipData.length === 1) {
+        setFilterChip({ label: "Filters" });
+      }
     }
   };
 
   const handlePriceChange = (value) => {
     setPrice(value.target.value);
-    let obj = { key: 2, label: "Price" };
+    setFilterChip(null);
+    let obj = { key: 2, label: "Price", sz: 1 };
     if (
       value.target.value !== 0 &&
       !chipData.find((ele) => {
@@ -212,28 +226,45 @@ function Filter() {
       setChipData([...chipData, { key: 2, label: "Price" }]);
     } else if (value.target.value === 0) {
       setChipData((chips) => chips.filter((chip) => chip.key !== 2));
+      if (chipData.length === 1) {
+        setFilterChip({ label: "Filters" });
+      }
     }
   };
 
   const handleInstituteAdd = (val) => {
     setInstituteAddress(val);
+    setFilterChip(null);
     if (val !== null) {
-      setChipData([...chipData, { key: 0, label: "Institute" }]);
+      setChipData([...chipData, { key: 0, label: "Institute", sz: 2 }]);
       setChipData((chips) => chips.filter((chip) => chip.key !== 1));
+      if (chipData.length === 1) {
+        setFilterChip({ label: "Filters" });
+      }
       setNearbyAddress(null);
     } else if (val === null) {
       setChipData((chips) => chips.filter((chip) => chip.key !== 0));
+      if (chipData.length === 1) {
+        setFilterChip({ label: "Filters" });
+      }
     }
   };
 
   const handleNearbyAdd = (val) => {
     setNearbyAddress(val);
+    setFilterChip(null);
     if (val !== null) {
-      setChipData([...chipData, { key: 1, label: "Nearby" }]);
+      setChipData([...chipData, { key: 1, label: "Nearby", sz: 2 }]);
       setChipData((chips) => chips.filter((chip) => chip.key !== 0));
+      if (chipData.length === 1) {
+        setFilterChip({ label: "Filters" });
+      }
       setInstituteAddress(null);
     } else if (val === null) {
       setChipData((chips) => chips.filter((chip) => chip.key !== 1));
+      if (chipData.length === 1) {
+        setFilterChip({ label: "Filters" });
+      }
     }
   };
   return (
@@ -247,15 +278,24 @@ function Filter() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <div className="accordion-heading">Filters</div>
-          {chipData.map((chip) => (
+          {filterChip && (
             <Chip
-              key={chip.key}
-              className="filter-chip"
-              label={chip.label}
-              onDelete={handleChipDelete(chip.key)}
+              className="accordion-heading"
+              icon={<FilterAltIcon style={{ color: "#d0e1f9" }} />}
+              label={filterChip.label}
+              sx={{ width: "90%", mx: "auto", cursor: "pointer" }}
             />
-          ))}
+          )}
+          <div>
+            {chipData.map((chip) => (
+              <Chip
+                key={chip.key}
+                className="filter-chip"
+                label={chip.label}
+                onDelete={handleChipDelete(chip.key)}
+              />
+            ))}
+          </div>
         </AccordionSummary>
         <AccordionDetails>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -302,17 +342,19 @@ function Filter() {
           </TabPanel>
           <TabPanel value={tabValue} index={1}>
             <Grid container>
-              <Grid item lg={2}>
+              <Grid item lg={2} md={2} sm={10} xs={10}>
                 <TextField
                   value={radius}
                   onChange={handleRadiusChange}
                   id="outlined-number"
                   label="Radius in km"
                   type="number"
+                  fullWidth
                   InputLabelProps={{
                     shrink: true,
                   }}
                   sx={{
+                    mb: { xs: 1, sm: 1, md: 0, lg: 0 },
                     "& label.Mui-focused": {
                       color: "#283655",
                       borderColor: "#4d648d",
@@ -325,13 +367,14 @@ function Filter() {
                   }}
                 />
               </Grid>
-              <Grid item lg={1}>
+              <Grid item lg={1} md={1} sm={2} xs={2}>
                 <IconButton color="secondary" onClick={handleCurrLocation}>
                   <MyLocationIcon sx={{ color: "#4d648d" }} />
                 </IconButton>
               </Grid>
-              <Grid item lg={9}>
+              <Grid item lg={9} md={9} sm={12} xs={12}>
                 <GooglePlacesAutocomplete
+                  sx={{ ml: 1 }}
                   apiKey="AIzaSyD__R5BJnyxVeNz7LLiUQ5BnJ3p5FjxIAI"
                   selectProps={{
                     isClearable: true,
@@ -351,7 +394,7 @@ function Filter() {
             </Grid>
           </TabPanel>
           <Grid container sx={{ mt: "10px" }}>
-            <Grid item lg={9} sx={{ pl: "3%" }}>
+            <Grid item lg={9} md={9} sm={12} xs={12}>
               <span className="price-filter">Price</span>
               <Slider
                 aria-label="Custom marks"
@@ -373,9 +416,10 @@ function Filter() {
                 mr: "2%",
                 backgroundColor: "#4d648d",
                 width: "2px",
+                xs: { display: "none" },
               }}
             />
-            <Grid item lg={2}>
+            <Grid item lg={2} md={2} sm={12} xs={12}>
               <div className="price-filter">Connections</div>
               <ToggleButton
                 className="connection-filter"
@@ -387,6 +431,7 @@ function Filter() {
                   fontWeight: "bold",
                   border: "1px solid #4d648d",
                   borderRadius: "30px",
+                  width: "100%",
                 }}
                 value="check"
                 selected={connectionSelected}
@@ -395,7 +440,6 @@ function Filter() {
                 Zero Connections
               </ToggleButton>
             </Grid>
-            <Grid item lg={12}></Grid>
           </Grid>
         </AccordionDetails>
       </Accordion>
