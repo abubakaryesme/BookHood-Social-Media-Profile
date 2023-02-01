@@ -1,0 +1,22 @@
+.scaleFollow 
+{ 
+    transition: all .2s ease-in-out; 
+    cursor: pointer;
+}
+
+.scaleFollow:hover 
+{ 
+    transform: scale(0.8); 
+}
+
+
+.scaleFollow1 
+{ 
+    transition: all .2s ease-in-out; 
+    cursor: pointer;
+}
+
+.scaleFollow1:hover 
+{ 
+    transform: scale(1.1); 
+}

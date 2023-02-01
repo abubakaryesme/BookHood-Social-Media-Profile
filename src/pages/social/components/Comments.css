@@ -1,0 +1,27 @@
+.commentsPostRow{
+
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start;
+    align-items: center; */
+}
+
+.dividerTextChanger .css-6od3lo-MuiChip-label {
+    color: #d0e1f9 !important;   
+}
+
+.lightPostColorHojaComment.css-ll91xs-MuiPaper-root{
+    background-color: #D0E1F9 !important;
+}
+
+.widthLessReply{
+    margin-left: 15px !important;
+    margin-bottom: 3px !important;
+    width: 93% !important;
+}
+
+.borderRadiusCommentTag .css-5aj5dm-MuiDivider-root {
+    border-radius: 3px !important;
+    box-shadow: 0px 3px 2px #4D648D;
+    margin-bottom: 4px;
+}

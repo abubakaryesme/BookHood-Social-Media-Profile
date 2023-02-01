@@ -1,0 +1,106 @@
+.lightPostColorHoja.css-ll91xs-MuiPaper-root{
+    background-color: #D0E1F945 !important;
+}
+
+.disabledChangePlease .css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+    opacity: 1;
+    -webkit-text-fill-color: #1e1f26 !important;
+}
+
+.css-ehq8xk-MuiImageListItem-root .MuiImageListItem-img{
+    height: 170px !important;
+    width: 100% !important;
+}
+
+
+.scrollLightPost ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+.scrollLightPost ::-webkit-scrollbar-thumb {
+    background: #283655;
+    border-radius:5px;
+  }
+
+
+.avatarPostColumn{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    height: 3rem;
+    margin-left: 4px;
+    margin-top: 4px
+
+}
+
+
+.avatarPostColumnEnd{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+    height: 3rem;
+    /* margin-right: 15px; */
+    margin-top: 4px;
+}
+
+.avatarPostRow{
+
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start;
+    align-items: center; */
+}
+
+.scrollLightPostComment ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+.scrollLightPostComment ::-webkit-scrollbar-thumb {
+    background: #283655;
+    border-radius: 15px;
+    margin-top: 10px;
+  }
+
+
+  .springUpOnHover:hover > .fadeIn{
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-timing-function:ease-in;
+    }
+    @-webkit-keyframes fadeIn {
+    0% {opacity: 0.3;
+        z-index: 200;}
+    50% {opacity: 0.7;
+        z-index: 200;}
+    80% {opacity: 0.9;
+        z-index: 200;}
+    100% {opacity: 1;}
+    }
+    @keyframes fadeIn {
+    0% {opacity: 0.3;
+        z-index: 200;}
+    50% {opacity: 0.6;
+        z-index: 200;}
+    80% {opacity: 0.9;
+        z-index: 200;}
+    100% {opacity: 1;}
+    }
+
+
+.css-15ssfm9-MuiFormLabel-root-MuiInputLabel-root {
+
+    font-size: 25px;
+}
